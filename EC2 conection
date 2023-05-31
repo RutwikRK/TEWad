@@ -1,0 +1,30 @@
+launch ec2 instance using amazon linux 2 ami
+
+then open ec2 instance connect
+user: ec2-user
+
+go to root user by
+    1  sudo su -
+    1  yum update -y
+    2  yum install -y httpd
+    3  clear
+    4  systemctl status httpd
+    5  mkdir temp
+    6  
+   
+   29  wget https://www.free-css.com/assets/files/free-css-templates/download/page291/gamepad.zip
+   30  ls
+   31  unzip gamepad.zip
+   32  ls -lrt
+   33  cd gamepad-html
+   34  ls -lrt
+   43  mv * /var/www/html/
+   44  cd /var/www/html/
+   45  ls -lrt
+   46  systemctl status httpd
+   47  systemctl enable httpd
+   48  systemctl status httpd
+   49  systemctl start httpd
+   50  systemctl status httpd
+
+your web app is ready on public ip
