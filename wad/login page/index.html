@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <span class="error" id="username-error"></span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <span class="error" id="password-error"></span>
+            </div>
+            <input type="submit" value="Login" class="submit-btn">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            var usernamePattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+            var passwordPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z!@#$%^&*]{8,}$/;
+
+            if (!usernamePattern.test(username)) {
+                document.getElementById('username-error').textContent = "Username should contain at least one uppercase letter, one lowercase letter, one special character, one number, and be at least 8 characters long.";
+                event.preventDefault();
+            } else {
+                document.getElementById('username-error').textContent = "";
+            }
+
+            if (!passwordPattern.test(password)) {
+                document.getElementById('password-error').textContent = "Password should contain at least one uppercase letter, one special character, and be at least 8 characters long.";
+                event.preventDefault();
+            } else {
+                document.getElementById('password-error').textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
